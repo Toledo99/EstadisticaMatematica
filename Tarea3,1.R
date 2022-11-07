@@ -34,7 +34,7 @@ for (n in ns){
     #pEMV=c(pEMV,exp(-lgorro))
     pEMV=exp(-lgorro)
     EpEMV=exp(n*lambda*(exp(-1/n)-1))
-    varpEMV=((n-1)/n)**(2*(n*lambda))-(1-(1-exp(-lambda)))
+    varpEMV=exp(-lambda)*(1-exp(-lambda)) - ((n-1)/n)**xS*(1- ((n-1)/n)**2)
     print(varpEMV)
     eepEMV=sqrt(varpEMV)/sqrt(n)
     print(sprintf("pEMV=%s, ee(pEMV)=%s",pEMV,eepEMV))

@@ -9,7 +9,7 @@ for(sigma in sigmas){
     qi=qnorm(alpha/2,0,sigma)
     qs=-qi
     w=qs-qi
-    print(sprintf("Alpha=%s, qs=%.3f, qi=%.3f, w=%.3f",alpha,qs,qi,w))
+    print(sprintf("Alpha=%s, qi=%.3f, qs=%.3f, w=%.3f",alpha,qi,qs,w))
   }
 }
 #==========================================================
@@ -32,7 +32,7 @@ for(sigma in sigmas){
         wmin=qs-qi
       }
     }
-    print(sprintf("Alpha=%s, qs=%.3f, qi=%.3f, w mínima=%.3f",alpha,qsmin,qimin,wmin))
+    print(sprintf("Alpha=%s, qi=%.3f, qs=%.3f, w mínima=%.3f",alpha,qimin,qsmin,wmin))
   }
 }
 
@@ -48,7 +48,7 @@ for(n in ns){
     qi=qchisq(alpha/2,n)
     qs=qchisq(1-alpha/2,n)
     w=qs-qi
-    print(sprintf("Alpha=%s, qs=%.3f, qi=%.3f, w=%.3f",alpha,qs,qi,w))
+    print(sprintf("Alpha=%s, qi=%.3f, qs=%.3f, w=%.3f",alpha,qi,qs,w))
   }
 }
 
@@ -72,6 +72,6 @@ for(n in ns){
         wmin=qs-qi
       }
     }
-    print(sprintf("Alpha=%s, qs=%.3f, qi=%.3f, w mínima=%.3f",alpha,qsmin,qimin,wmin))
+    print(sprintf("Alpha=%s, qi=%.3f, qs=%.3f, w mínima=%.3f",alpha,qimin,qsmin,wmin))
   }
 }

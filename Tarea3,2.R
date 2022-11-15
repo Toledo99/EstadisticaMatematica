@@ -58,14 +58,18 @@ for(n in ns){
 #Xi con amplitud mínima
 print("Xi con amplitud mínima \n")
 
+
 for(n in ns){
   print(sprintf("   n = %s",n))
   for (alpha in alphas){
     wmin=1000000
-    for (parte in seq(0,alpha,0.0000001)){
-      qi=qchisq(parte/2,n)
-      qs=qchisq(1-(alpha-parte),n)
-      w=qs-qi
+    qinicial=qchisq(0,n)
+    qfinal=qchisq(alpha,n)
+    for (parte in seq(qinicial,qfinal,0.0001)){
+      Fq1=pchisq(qi,n)
+      Fq1
+      qs=qchisq(Fq1+1-alpha,n)
+      w=qs-parte
       if(w<wmin){
         qimin=qi
         qsmin=qs

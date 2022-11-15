@@ -15,6 +15,7 @@ for (n in ns){
     print(sprintf("Y lambda =%s",lambda))
     x=rpois(n, lambda)
     xS=sum(x)
+    xS2=xS-x[1]
     lgorro=xS/n
     vectorMedias=c(vectorMedias,lgorro)
     y=c()
@@ -32,21 +33,21 @@ for (n in ns){
     }
     
     #pEMV=c(pEMV,exp(-lgorro))
-    pEMV=exp(-lgorro)
-    EpEMV=exp(n*lambda*(exp(-1/n)-1))
-    varpEMV=exp(-lambda)*(1-exp(-lambda)) - ((n-1)/n)**xS*(1- ((n-1)/n)**2)
-    print(varpEMV)
-    eepEMV=sqrt(varpEMV)/sqrt(n)
-    print(sprintf("pEMV=%s, ee(pEMV)=%s",pEMV,eepEMV))
+    pthetaEMV=exp(-lgorro)
+    EpthetaEMV=exp(n*lambda*(exp(-1/n)-1))
+    varpthetaEMV=exp(n*lambda)*(exp(exp(-2/n)-1)-exp(2*exp(-1/n)-1))
+    eepthetaEMV=sqrt(varpEMV)
+    print(sprintf("pthetaEMV=%s, ee(pthetaEMV)=%s",pthetaEMV,eepthetaEMV))
     #pY=c(pY,sum(y)/n)
     pY=sum(y)/n
     varpY=(exp(-lambda)*(1-exp(-lambda)))/n
-    eepY=sqrt(varpY)/sqrt(n)
+    eepY=sqrt(varpY)
     print(sprintf("pY=%s, ee(pY)=%s",pY,eepY))
     #pUMVUE=c(pUMVUE,((n-1)/n)**xS)
     pUMVUE=((n-1)/n)**xS
-    varpUMVUE=exp(lambda*(1-2*n)/n)-exp(-2*lambda)
-    eepUMVUE=sqrt(varpUMVUE)/sqrt(n)
+    cons=((n-1)/n)
+    varpUMVUE=exp(-lambda)*(1-exp(-lambda))-((cons**(2*xS2))*(1-cons**2)*(1+(cons**2)*lambda))
+    eepUMVUE=sqrt(varpUMVUE)
     print(sprintf("pUMVUE=%s, ee(pUMVUE)=%s",pUMVUE,eepUMVUE))
     print("=========================")
     print(" ")
